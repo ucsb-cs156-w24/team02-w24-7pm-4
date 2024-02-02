@@ -1,4 +1,4 @@
-# STARTER-team02
+# team02-w24-7pm-4
 
 Instructions: <https://ucsb-cs156.github.io/w24/lab/team02.html>
 
