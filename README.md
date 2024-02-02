@@ -2,7 +2,7 @@
 
 Instructions: <https://ucsb-cs156.github.io/w24/lab/team02.html>
 
-TODO: change heading above to your repo name, e.g. `# team02-w24-6pm-4`
+TODO: change heading above to your repo name, e.g. `# team02-w24-6pm-5`
 
 TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
