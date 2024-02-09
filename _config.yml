@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-w24/team02-w24-7pm-4
 owner: ucsb-cs156-w24
 repo_name: team02-w24-7pm-4
-pull_requests: [{"author":{"id":"U_kgDOBXzOLw","is_bot":false,"login":"wesley-hung","name":""},"headRefName":"whung-Articles","number":44,"title":"Implemented Articles.java, ArticlesRepository.java, Articles.json","url":"https://github.com/ucsb-cs156-w24/team02-w24-7pm-4/pull/44"},{"author":{"id":"U_kgDOBdHhOA","is_bot":false,"login":"dhwang154","name":""},"headRefName":"dhwang154-readme","number":43,"title":"Update README.md","url":"https://github.com/ucsb-cs156-w24/team02-w24-7pm-4/pull/43"}]
+pull_requests: [{"author":{"id":"U_kgDOBXzOLw","is_bot":false,"login":"wesley-hung","name":""},"headRefName":"whung-Articles","number":44,"title":"Implemented Articles.java, ArticlesRepository.java, Articles.json","url":"https://github.com/ucsb-cs156-w24/team02-w24-7pm-4/pull/44"}]
