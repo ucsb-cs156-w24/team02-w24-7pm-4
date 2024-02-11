@@ -23,7 +23,7 @@ public class MenuItemReview {
   private long id;
 
   private long itemId;
-  private String diningCreviewerEmailommonsCode;
+  private String reviewerEmail;
   private int stars;
   private LocalDateTime dateReviewed;
   private String comments;  
