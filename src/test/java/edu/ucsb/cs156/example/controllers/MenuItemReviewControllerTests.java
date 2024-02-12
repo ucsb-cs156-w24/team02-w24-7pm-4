@@ -219,10 +219,10 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                     .build();
                 
                 MenuItemReview reviewEdited = MenuItemReview.builder()
-                    .itemId(1)
-                    .reviewerEmail("wesleytruong@ucsb.edu")
+                    .itemId(6)
+                    .reviewerEmail("wesley@ucsb.edu")
                     .stars(5)
-                    .dateReviewed(ldt1)
+                    .dateReviewed(ldt2)
                     .comments("food was amazing")
                     .build();
                     
