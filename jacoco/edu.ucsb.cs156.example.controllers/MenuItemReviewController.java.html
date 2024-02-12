@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MenuItemReviewController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">team02</a> &gt; <a href="index.source.html" class="el_package">edu.ucsb.cs156.example.controllers</a> &gt; <span class="el_source">MenuItemReviewController.java</span></div><h1>MenuItemReviewController.java</h1><pre class="source lang-java linenums">package edu.ucsb.cs156.example.controllers;
 
 import edu.ucsb.cs156.example.entities.MenuItemReview;
+import edu.ucsb.cs156.example.entities.UCSBDate;
 import edu.ucsb.cs156.example.errors.EntityNotFoundException;
 import edu.ucsb.cs156.example.repositories.MenuItemReviewRepository;
 
@@ -30,8 +31,8 @@ import java.time.LocalDateTime;
 @Tag(name = &quot;MenuItemReview&quot;)
 @RequestMapping(&quot;/api/menuitemreview&quot;)
 @RestController
-<span class="fc" id="L33">@Slf4j</span>
-<span class="fc" id="L34">public class MenuItemReviewController extends ApiController {</span>
+<span class="fc" id="L34">@Slf4j</span>
+<span class="fc" id="L35">public class MenuItemReviewController extends ApiController {</span>
 
     @Autowired
     MenuItemReviewRepository menuItemReviewRepository;
@@ -40,8 +41,8 @@ import java.time.LocalDateTime;
     @PreAuthorize(&quot;hasRole('ROLE_USER')&quot;)
     @GetMapping(&quot;/all&quot;)
     public Iterable&lt;MenuItemReview&gt; allMenuItemReviews() {
-<span class="fc" id="L43">        Iterable&lt;MenuItemReview&gt; reviews = menuItemReviewRepository.findAll();</span>
-<span class="fc" id="L44">        return reviews;</span>
+<span class="fc" id="L44">        Iterable&lt;MenuItemReview&gt; reviews = menuItemReviewRepository.findAll();</span>
+<span class="fc" id="L45">        return reviews;</span>
     }
 
     @Operation(summary= &quot;Create a new review&quot;)
@@ -58,16 +59,16 @@ import java.time.LocalDateTime;
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         // See: https://www.baeldung.com/spring-date-parameters
 
-<span class="fc" id="L61">        MenuItemReview review = new MenuItemReview();</span>
-<span class="fc" id="L62">        review.setItemId(itemId);</span>
-<span class="fc" id="L63">        review.setReviewerEmail(reviewerEmail);</span>
-<span class="fc" id="L64">        review.setStars(stars);</span>
-<span class="fc" id="L65">        review.setComments(comments);</span>
-<span class="fc" id="L66">        review.setDateReviewed(dateReviewed);</span>
+<span class="fc" id="L62">        MenuItemReview review = new MenuItemReview();</span>
+<span class="fc" id="L63">        review.setItemId(itemId);</span>
+<span class="fc" id="L64">        review.setReviewerEmail(reviewerEmail);</span>
+<span class="fc" id="L65">        review.setStars(stars);</span>
+<span class="fc" id="L66">        review.setComments(comments);</span>
+<span class="fc" id="L67">        review.setDateReviewed(dateReviewed);</span>
 
-<span class="fc" id="L68">        MenuItemReview savedReview = menuItemReviewRepository.save(review);</span>
+<span class="fc" id="L69">        MenuItemReview savedReview = menuItemReviewRepository.save(review);</span>
 
-<span class="fc" id="L70">        return savedReview;</span>
+<span class="fc" id="L71">        return savedReview;</span>
     }
 
     @Operation(summary= &quot;Get a single review&quot;)
@@ -75,10 +76,22 @@ import java.time.LocalDateTime;
     @GetMapping(&quot;&quot;)
     public MenuItemReview getById(
             @Parameter(name=&quot;id&quot;) @RequestParam Long id) {
-<span class="fc" id="L78">        MenuItemReview review = menuItemReviewRepository.findById(id)</span>
-<span class="fc" id="L79">                .orElseThrow(() -&gt; new EntityNotFoundException(MenuItemReview.class, id));</span>
+<span class="fc" id="L79">        MenuItemReview review = menuItemReviewRepository.findById(id)</span>
+<span class="fc" id="L80">                .orElseThrow(() -&gt; new EntityNotFoundException(MenuItemReview.class, id));</span>
 
-<span class="fc" id="L81">        return review;</span>
+<span class="fc" id="L82">        return review;</span>
+    }
+
+    @Operation(summary= &quot;Delete a review&quot;)
+    @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
+    @DeleteMapping(&quot;&quot;)
+    public Object deleteUCSBDate(
+            @Parameter(name=&quot;id&quot;) @RequestParam Long id) {
+<span class="fc" id="L90">        MenuItemReview review = menuItemReviewRepository.findById(id)</span>
+<span class="fc" id="L91">                .orElseThrow(() -&gt; new EntityNotFoundException(MenuItemReview.class, id));</span>
+
+<span class="fc" id="L93">        menuItemReviewRepository.delete(review);</span>
+<span class="fc" id="L94">        return genericMessage(&quot;MenuItemReview with id %s deleted&quot;.formatted(id));</span>
     }
 
     @Operation(summary= &quot;Update a single review&quot;)
@@ -88,18 +101,18 @@ import java.time.LocalDateTime;
             @Parameter(name=&quot;id&quot;) @RequestParam Long id,
             @RequestBody @Valid MenuItemReview incoming) {
 
-<span class="fc" id="L91">        MenuItemReview review = menuItemReviewRepository.findById(id)</span>
-<span class="fc" id="L92">                .orElseThrow(() -&gt; new EntityNotFoundException(MenuItemReview.class, id));</span>
+<span class="fc" id="L104">        MenuItemReview review = menuItemReviewRepository.findById(id)</span>
+<span class="fc" id="L105">                .orElseThrow(() -&gt; new EntityNotFoundException(MenuItemReview.class, id));</span>
 
-<span class="fc" id="L94">        review.setItemId(incoming.getItemId());</span>
-<span class="fc" id="L95">        review.setReviewerEmail(incoming.getReviewerEmail());</span>
-<span class="fc" id="L96">        review.setStars(incoming.getStars());</span>
-<span class="fc" id="L97">        review.setDateReviewed(incoming.getDateReviewed());</span>
-<span class="fc" id="L98">        review.setComments(incoming.getComments());</span>
+<span class="fc" id="L107">        review.setItemId(incoming.getItemId());</span>
+<span class="fc" id="L108">        review.setReviewerEmail(incoming.getReviewerEmail());</span>
+<span class="fc" id="L109">        review.setStars(incoming.getStars());</span>
+<span class="fc" id="L110">        review.setDateReviewed(incoming.getDateReviewed());</span>
+<span class="fc" id="L111">        review.setComments(incoming.getComments());</span>
 
-<span class="fc" id="L100">        menuItemReviewRepository.save(review);</span>
+<span class="fc" id="L113">        menuItemReviewRepository.save(review);</span>
 
-<span class="fc" id="L102">        return review;</span>
+<span class="fc" id="L115">        return review;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
