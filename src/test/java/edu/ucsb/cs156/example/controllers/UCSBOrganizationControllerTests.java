@@ -88,14 +88,14 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 .orgCode("ZPR")
                 .orgTranslationShort("ZETA PHI RHO")
                 .orgTranslation("ZETA PHI RHO")
-                .inactive(false)
+                .inactive(true)
                 .build();
 
         UCSBOrganization sky = UCSBOrganization.builder()
                 .orgCode("SKY")
                 .orgTranslationShort("SKYDIVING CLUB")
                 .orgTranslation("SKYDIVING CLUB AT UCSB")
-                .inactive(false)
+                .inactive(true)
                 .build();
 
         ArrayList<UCSBOrganization> expectedOrganizations = new ArrayList<>();
@@ -139,7 +139,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 .orgCode("SKY")
                 .orgTranslationShort("SKYDIVING CLUB")
                 .orgTranslation("SKYDIVING AT UCSB")
-                .inactive(false)
+                .inactive(true)
                 .build();
 
 
@@ -147,7 +147,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
 
         // act
         MvcResult response = mockMvc.perform(
-                post("/api/ucsborganizations/post?orgCode=SKY&orgTranslationShort=SKYDIVING CLUB&orgTranslation=SKYDIVING AT UCSB&inactive=false")
+                post("/api/ucsborganizations/post?orgCode=SKY&orgTranslationShort=SKYDIVING CLUB&orgTranslation=SKYDIVING AT UCSB&inactive=true")
                         .with(csrf()))
                 .andExpect(status().isOk()).andReturn();
 
@@ -174,7 +174,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 .orgCode("TEST")
                 .orgTranslationShort("TEST SHORT")
                 .orgTranslation("TEST ORGANIZATION")
-                .inactive(false)
+                .inactive(true)
                 .build();
 
         when(ucsbOrganizationRepository.findById(eq("TEST"))).thenReturn(Optional.of(organization));
@@ -199,7 +199,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 .orgCode("SKY")
                 .orgTranslationShort("SKYDIVING CLUB")
                 .orgTranslation("SKYDIVING AT UCSB")
-                .inactive(false)
+                .inactive(true)
                 .build();
 
         when(ucsbOrganizationRepository.findById(eq("SKY"))).thenReturn(Optional.of(sky));
@@ -247,14 +247,14 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 .orgCode("SKY")
                 .orgTranslationShort("SKYDIVING CLUB")
                 .orgTranslation("SKYDIVING AT UCSB")
-                .inactive(false)
+                .inactive(true)
                 .build();
 
         UCSBOrganization skyEdited = UCSBOrganization.builder()
                 .orgCode("SKY")
-                .orgTranslationShort("SKYDIVING CLUB")
+                .orgTranslationShort("SKYDIVING CLUB YAY")
                 .orgTranslation("SKYDIVING CLUB AT UCSB")
-                .inactive(true)
+                .inactive(false)
                 .build();
 
         String requestBody = mapper.writeValueAsString(skyEdited);
@@ -287,7 +287,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 .orgCode("munger-hall")
                 .orgTranslationShort("Munger Hall")
                 .orgTranslation("Munger Hall at UCSB")
-                .inactive(false)
+                .inactive(true)
                 .build();
 
         String requestBody = mapper.writeValueAsString(editedOrg);
