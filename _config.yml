@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-w24/team02-w24-7pm-4
 owner: ucsb-cs156-w24
 repo_name: team02-w24-7pm-4
-pull_requests: [{"author":{"id":"MDQ6VXNlcjQwNTQ2NDI3","is_bot":false,"login":"viditagrawal","name":""},"headRefName":"viditagrawal-createdbtable","number":51,"title":"created db and schema for ucsb organizations","url":"https://github.com/ucsb-cs156-w24/team02-w24-7pm-4/pull/51"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjQwNTQ2NDI3","is_bot":false,"login":"viditagrawal","name":""},"headRefName":"viditagrawal-controller-and-tests","number":56,"title":"Viditagrawal controller and tests","url":"https://github.com/ucsb-cs156-w24/team02-w24-7pm-4/pull/56"},{"author":{"id":"MDQ6VXNlcjQwNTQ2NDI3","is_bot":false,"login":"viditagrawal","name":""},"headRefName":"viditagrawal-createdbtable","number":51,"title":"created db and schema for ucsb organizations","url":"https://github.com/ucsb-cs156-w24/team02-w24-7pm-4/pull/51"}]
