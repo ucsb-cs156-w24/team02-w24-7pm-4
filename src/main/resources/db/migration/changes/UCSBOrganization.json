@@ -1,57 +1,69 @@
-{
-  "databaseChangeLog": [
+{ "databaseChangeLog": [
     {
-      "changeSet": {
-        "id": "UCSBOrganization-1",
-        "author": "viditagrawal",
-        "preConditions": [
-          {
-            "onFail": "MARK_RAN"
-          },
-          {
-            "not": [
-              {
-                "tableExists": {
-                  "tableName": "UCSBORGANIZATIONS"
-                }
-              }
-            ]
-          }
-        ],
-        "changes": [
-          {
-            "createTable": {
-              "columns": [
+        "changeSet": {
+          "id": "UCSBOrganizations-5",
+          "author": "viditagrawal",
+          "preConditions": [
+            {
+              "onFail": "MARK_RAN"
+            },
+            {
+              "not": [
                 {
-                  "column": {
-                    "name": "orgCode",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "orgTranslationShort",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "orgTranslation",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "inactive",
-                    "type": "BOOLEAN"
+                  "tableExists": {
+                    "tableName": "UCSBORGANIZATIONS"
                   }
                 }
-              ],
-              "tableName": "UCSBORGANIZATIONS"
+              ]
             }
-          }
-        ]
-      }
+          ],
+          "changes": [
+            {
+              "createTable": {
+                "columns": [
+                  {
+                    "column": {
+                      "constraints": {
+                        "primaryKey": true,
+                        "primaryKeyName": "CONSTRAINT-25"
+                      },
+                      "name": "ORG_CODE",
+                      "type": "VARCHAR(255)"
+                    }
+                  },
+                  {
+                    "column": {
+                      "constraints": {
+                        "nullable": false
+                      },
+                      "name": "ORG_TRANSLATION_SHORT",
+                      "type": "VARCHAR(255)"
+                    }
+                  },
+                  {
+                    "column": {
+                      "constraints": {
+                        "nullable": false
+                      },
+                      "name": "ORG_TRANSLATION",
+                      "type": "VARCHAR(255)"
+                    }
+                  },
+                  {
+                    "column": {
+                      "constraints": {
+                        "nullable": false
+                      },
+                      "name": "INACTIVE",
+                      "type": "BOOLEAN"
+                    }
+                  }
+                ]
+                ,
+                "tableName": "UCSBORGANIZATIONS"
+              }
+            }]
+  
+        }
     }
-  ]
-}
+  ]}
