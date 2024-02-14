@@ -263,7 +263,7 @@ public class UCSBDiningCommonsControllerTests extends ControllerTestCase {
                 // arrange
 
                 UCSBDiningCommons carrilloOrig = UCSBDiningCommons.builder()
-                                .name("Carrillo")
+                                .name("Carrillo") 
                                 .code("carrillo")
                                 .hasSackMeal(false)
                                 .hasTakeOutMeal(false)
