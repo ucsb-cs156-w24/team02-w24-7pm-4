@@ -248,8 +248,8 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
                                 .build();
 
                 RecommendationRequest RecommendationRequestEdited = RecommendationRequest.builder()
-                                .requesterEmail("student2@ucsb.edu")
-                                .professorEmail("professor2@ucsb.edu")
+                                .requesterEmail("student1@ucsb.edu")
+                                .professorEmail("professor1@ucsb.edu")
                                 .explanation("Second Letter of Rec")
                                 .dateRequested(ldt2)
                                 .dateNeeded(ldt2)
