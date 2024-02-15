@@ -107,7 +107,7 @@ public class HelpRequestController extends ApiController{
         request.setRequesterEmail(incoming.getRequesterEmail());
         request.setTableOrBreakoutRoom(incoming.getTableOrBreakoutRoom());
         request.setTeamId(incoming.getTeamId());
-        request.setSolved(incoming.isSolved());
+        request.setSolved(incoming.getSolved());
 
         helpRequestRepository.save(request);
 
