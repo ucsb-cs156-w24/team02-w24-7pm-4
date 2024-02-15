@@ -139,14 +139,14 @@ public class HelpRequestControllerTests extends ControllerTestCase{
                             .teamId("s22-5pm-3")
                             .tableOrBreakoutRoom("7")
                             .explanation("Swagger-ui")
-                            .solved(false)
+                            .solved(true)
                             .build();
             // String requestBody = mapper.writeValueAsString(request1);
             when(helpRequestRepository.save(eq(request1))).thenReturn(request1);
 
             // act
             MvcResult response = mockMvc.perform(
-                post("/api/helprequest/post?requesterEmail=cgaucho@ucsb.edu&tableOrBreakoutRoom=7&explanation=Swagger-ui&solved=false&requestTime=2022-04-20T17:35&teamId=s22-5pm-3")
+                post("/api/helprequest/post?requesterEmail=cgaucho@ucsb.edu&tableOrBreakoutRoom=7&explanation=Swagger-ui&solved=true&requestTime=2022-04-20T17:35&teamId=s22-5pm-3")
                 .with(csrf()))
                 .andExpect(status().isOk()) 
                 .andReturn();
@@ -296,9 +296,9 @@ public class HelpRequestControllerTests extends ControllerTestCase{
                             .requestTime(requestTime2)
                             .requesterEmail("ldelplaya@ucsb.edu")
                             .teamId("s22-6pm-3")
-                            .tableOrBreakoutRoom("7")
+                            .tableOrBreakoutRoom("11")
                             .explanation("Dokku problems")
-                            .solved(false)
+                            .solved(true)
                             .build();
 
 
@@ -336,7 +336,7 @@ public class HelpRequestControllerTests extends ControllerTestCase{
                             .teamId("s22-5pm-3")
                             .tableOrBreakoutRoom("7")
                             .explanation("Need help with Swagger-ui")
-                            .solved(false)
+                            .solved(true)
                             .build();
 
             String requestBody = mapper.writeValueAsString(editedRequest);
