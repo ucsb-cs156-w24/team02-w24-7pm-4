@@ -52,15 +52,16 @@ public class HelpRequestController extends ApiController{
             @Parameter(name="tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
             @Parameter(name="explanation") @RequestParam String explanation,
             @Parameter(name="solved") @RequestParam Boolean solved,
-            @Parameter(name="date (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601)") @RequestParam("localDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime localDateTime)
+            @Parameter(name="requestTime") @RequestParam("localDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime)
             throws JsonProcessingException {
 
-                log.info("localDateTime={}", localDateTime);
+                log.info("localDateTime={}", requestTime);
                 HelpRequest helpRequest = new HelpRequest();
                 helpRequest.setExplanation(explanation);
-                helpRequest.setRequestTime(localDateTime);
+                helpRequest.setRequestTime(requestTime);
                 helpRequest.setRequesterEmail(requesterEmail);
                 helpRequest.setSolved(solved);
+                helpRequest.setTeamId(teamId);
                 helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
 
                 HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
