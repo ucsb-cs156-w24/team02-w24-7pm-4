@@ -89,7 +89,7 @@ public class HelpRequestController extends ApiController{
                 .orElseThrow(() -> new EntityNotFoundException(HelpRequest.class, id));
 
         helpRequestRepository.delete(request);
-        return genericMessage("Help Request with id %s deleted".formatted(id));
+        return genericMessage("HelpRequest with id %s deleted".formatted(id));
     }
 
     @Operation(summary= "Update a single help request")
