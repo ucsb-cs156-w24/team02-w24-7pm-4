@@ -11,12 +11,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "UCSBrecommendationrequest")
+@Entity(name = "ucsbrecommendationrequest")
 public class RecommendationRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
