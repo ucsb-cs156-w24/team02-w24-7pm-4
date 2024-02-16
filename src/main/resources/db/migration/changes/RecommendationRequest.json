@@ -2,7 +2,7 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "UCSBRECOMMENDATIONREQUEST-1",
+          "id": "UCSBRECOMMENDATIONREQUEST-2",
           "author": "CoryZ",
           "preConditions": [
             {
