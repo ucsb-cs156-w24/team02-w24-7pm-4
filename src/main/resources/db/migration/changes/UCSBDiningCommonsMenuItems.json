@@ -28,7 +28,7 @@
                       "autoIncrement": true,
                       "constraints": {
                         "primaryKey": true,
-                        "primaryKeyName": "UCSBDININGCOMMONSMENU_3"
+                        "primaryKeyName": "CONSTRAINT_32"
                       },
                       "name": "ID",
                       "type": "BIGINT"
@@ -36,7 +36,7 @@
                   },
                   {
                     "column": {
-                      "name": "DININGCOMMONSCODE",
+                      "name": "DINING_COMMONS_CODE",
                       "type": "VARCHAR(255)"
                     }
                   },
