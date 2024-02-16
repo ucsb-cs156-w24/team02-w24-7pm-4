@@ -304,5 +304,3 @@ jobs:
       with:
           name: prs-${{ matrix.value.number }}-pitest
           path: ${{ env.destination }}
-
-  
