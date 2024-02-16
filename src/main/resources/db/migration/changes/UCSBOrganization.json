@@ -1,7 +1,7 @@
 { "databaseChangeLog": [
     {
         "changeSet": {
-          "id": "UCSBOrganizations-5",
+          "id": "UCSBOrganizations-6",
           "author": "viditagrawal",
           "preConditions": [
             {
