@@ -12,13 +12,9 @@
 
 Instructions: <https://ucsb-cs156.github.io/w24/lab/team02.html>
 
-TODO: change heading above to your repo name, e.g. `# team02-w24-6pm-5`
+Deployments:https://team02.dokku-16.cs.ucsb.edu/
 
-TODO: Add a link to the deployed Dokku app for your team here, e.g.
-
-Deployments:
-
-* Prod: <https://team02.dokku-16.cs.ucsb.edu>
+* Prod: [<https://team02.dokku-16.cs.ucsb.edu>](https://team02.dokku-16.cs.ucsb.edu/)
 * QA: <https://team02-qa.dokku-16.cs.ucsb.edu>
 
 # Setup before running application
