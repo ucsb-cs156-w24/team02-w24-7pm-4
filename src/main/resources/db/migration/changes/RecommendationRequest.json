@@ -2,7 +2,7 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "UCSBRecommendationRequest-1",
+          "id": "UCSBRECOMMENDATIONREQUEST-1",
           "author": "CoryZ",
           "preConditions": [
             {
@@ -12,7 +12,7 @@
               "not": [
                 {
                   "tableExists": {
-                    "tableName": "UCSBRecommendationRequest"
+                    "tableName": "UCSBRECOMMENDATIONREQUEST"
                   }
                 }
               ]
@@ -70,7 +70,7 @@
                     }
                   }
                 ],
-                "tableName": "UCSBRecommendationRequest"
+                "tableName": "UCSBRECOMMENDATIONREQUEST"
               }
             }
           ]
